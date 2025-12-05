@@ -8,7 +8,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [vue()],
-  base: process.env.NODE_ENV === 'production' ? '/shzu-welcome-website/' : '/', // 仅在生产环境使用GitHub Pages路径
+  base: process.env.NODE_ENV === 'production' ? '/Shzu-welcome-website/' : '/', // 仅在生产环境使用GitHub Pages路径
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'), // 配置@别名指向src目录
