@@ -1,23 +1,385 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="石河子大学2026级新生迎新主题网页 - 展示学校风采，传递迎新特色" />
-  <meta name="keywords" content="石河子大学,迎新,新生入学,校园风采" />
-  <title>石河子大学 - 2026级新生欢迎页面</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>石河子大学 - 2026级新生欢迎页面</title>
+    <meta name="description" content="石河子大学2026级新生迎新主题网页 - 展示学校风采，传递迎新特色">
+    <meta name="keywords" content="石河子大学,迎新,新生入学,校园风光">
 
-  <!-- Font Awesome图标库 - CC BY 4.0协议 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <!-- 中文字体优化 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --shzu-blue: #1e5ba8;
+            --shzu-light-blue: #4a90e2;
+            --shzu-dark-blue: #0d3b7a;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e3f2fd 100%);
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(30, 91, 168, 0.9), rgba(13, 59, 122, 0.95)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%234a90e2" width="1200" height="600"/><circle cx="200" cy="150" r="80" fill="%23ffffff20"/><circle cx="800" cy="400" r="120" fill="%23ffffff10"/><circle cx="1000" cy="200" r="60" fill="%23ffffff15"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="0.5" opacity="0.3"/></svg>');
+            background-size: 100px 100px;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .university-logo {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--shzu-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--shzu-blue);
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+
+        .section-title {
+            color: var(--shzu-blue);
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            font-size: 2rem;
+            color: var(--shzu-light-blue);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .info-item {
+            background: rgba(74, 144, 226, 0.08);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid var(--shzu-light-blue);
+        }
+
+        .info-item h4 {
+            color: var(--shzu-dark-blue);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, var(--shzu-blue), var(--shzu-light-blue));
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .btn-custom {
+            background: linear-gradient(135deg, var(--shzu-light-blue), var(--shzu-blue));
+            border: none;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 91, 168, 0.3);
+            color: white;
+        }
+
+        .footer {
+            background: var(--shzu-dark-blue);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 80px;
+        }
+
+        .source-info {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .compliance-notice {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.2rem; }
+            .section-card { padding: 25px; margin: 20px 10px; }
+        }
+    </style>
 </head>
 <body>
-  <div id="app"></div>
-  <script type="module" src="/src/main.js"></script>
+    <!-- 英雄区域 -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="university-logo">石大</div>
+            <h1 class="hero-title">石河子大学</h1>
+            <p class="hero-subtitle">2026级新生欢迎页面</p>
+            <div class="mt-4">
+                <button class="btn btn-light btn-lg me-3" onclick="scrollToSection('campus')">
+                    <i class="fas fa-university me-2"></i>校园风采
+                </button>
+                <button class="btn btn-outline-light btn-lg" onclick="scrollToSection('guide')">
+                    <i class="fas fa-compass me-2"></i>迎新指南
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 校园风采 -->
+    <section id="campus" class="content-section">
+        <div class="container">
+            <div class="section-card">
+                <h2 class="section-title">
+                    <i class="fas fa-university"></i>
+                    校园风采
+                </h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">
+                    石河子大学位于新疆天山北麓，被誉为"戈壁明珠"的军垦新城石河子市。校园环境优美，教学设施先进，
+                    是国家"211工程"重点建设高校和国家"双一流"建设高校。学校拥有优美的校园环境、先进的教学设施
+                    和浓厚的学术氛围，为广大学子提供了理想的学习场所。
+                </p>
+                <div class="info-grid mt-4">
+                    <div class="info-item">
+                        <h4><i class="fas fa-book me-2"></i>学术实力</h4>
+                        <p>国家"211工程"重点建设高校，涵盖经济学、法学、教育学、文学、历史学、理学、工学、农学、医学、管理学、艺术学等11大学科门类。</p>
+                    </div>
+                    <div class="info-item">
+                        <h4><i class="fas fa-map-marker-alt me-2"></i>地理位置</h4>
+                        <p>位于新疆石河子市，交通便利，环境优美。校园占地总面积180万平方米，校舍面积110万平方米。</p>
+                    </div>
+                    <div class="info-item">
+                        <h4><i class="fas fa-users me-2"></i>师资力量</h4>
+                        <p>现有教职工2600余人，其中专任教师1700余人，教授、副教授800余人，博士生导师200余人。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 迎新指南 -->
+    <section id="guide" class="content-section">
+        <div class="container">
+            <div class="section-card">
+                <h2 class="section-title">
+                    <i class="fas fa-compass"></i>
+                    迎新指南
+                </h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="info-item h-100">
+                            <h4><i class="fas fa-calendar-check me-2"></i>报到时间</h4>
+                            <p>2026年8月25日-26日<br>
+                            请持录取通知书、身份证、档案材料等按时报到。<br>
+                            报到地点：各学院迎新点</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="info-item h-100">
+                            <h4><i class="fas fa-bed me-2"></i>住宿安排</h4>
+                            <p>学校为新生提供标准化学生宿舍<br>
+                            配备空调、热水器、网络等设施<br>
+                            宿舍分配结果可在报到系统查询</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="info-item h-100">
+                            <h4><i class="fas fa-credit-card me-2"></i>缴费指南</h4>
+                            <p>学费、住宿费可通过以下方式缴纳：<br>
+                            📱 线上缴费：学校官方微信公众号<br>
+                            🏦 现场缴费：迎新现场缴费点</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="info-item h-100">
+                            <h4><i class="fas fa-id-card me-2"></i>校园卡办理</h4>
+                            <p>报到时统一办理校园一卡通<br>
+                            功能：图书借阅、食堂消费、门禁等<br>
+                            工本费：20元（首次办理）</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-box">
+                    <h3><i class="fas fa-phone-alt me-3"></i>联系我们</h3>
+                    <div class="row mt-4">
+                        <div class="col-md-4">
+                            <h5>招生办公室</h5>
+                            <p>电话：0993-1234567<br>邮箱：zsb@shzu.edu.cn</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>迎新热线</h5>
+                            <p>电话：0993-7654321<br>工作时间：8:00-22:00</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>紧急联系</h5>
+                            <p>保卫处：0993-8888110<br>校医院：0993-8888120</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="source-info">
+                        <p class="mb-2">图片素材来源：石河子大学官网校园风光网站</p>
+                        <p class="mb-0">本网站基于 Bootstrap 5 +原生 JavaScript 架构制作</p>
+                    </div>
+                    <div class="compliance-notice">
+                        本网页素材均为合规无版权资源，仅供"网聚创意"易协联创网页设计大赛使用
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // 平滑滚动
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // 页面加载动画
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            setTimeout(function() {
+                document.body.style.transition = 'opacity 0.8s ease-in-out';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // 简单的滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有卡片
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.section-card, .info-item');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
 </body>
 </html>
