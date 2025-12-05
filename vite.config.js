@@ -8,7 +8,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [vue()],
-  base: process.env.NODE_ENV === 'production' ? '/Shzu-welcome-website/' : '/', // 仅在生产环境使用GitHub Pages路径
+  base: process.env.NODE_ENV === 'production' ? '/' : '/', // 生产环境使用根路径，因为GitHub Pages直接从docs文件夹部署
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'), // 配置@别名指向src目录
@@ -25,7 +25,7 @@ export default defineConfig({
     cors: true // 开启跨域
   },
   build: {
-    outDir: 'dist', // 打包输出目录
+    outDir: 'docs', // 打包输出目录
     assetsDir: 'assets', // 静态资源目录
     sourcemap: false, // 生产环境不生成sourcemap
     minify: 'terser', // 使用terser压缩
