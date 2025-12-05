@@ -26,7 +26,7 @@ const app = createApp(App)
 
 // 创建路由实例
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/'),
   routes: routes,
   scrollBehavior(to, from, savedPosition) {
     // 路由切换时的滚动行为
