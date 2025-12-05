@@ -4,7 +4,7 @@
 // Bootstrap5集成参考: https://getbootstrap.com/docs/5.3/getting-started/javascript/
 
 import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 // 导入根组件
 import App from './App.vue'
@@ -26,7 +26,7 @@ const app = createApp(App)
 
 // 创建路由实例
 const router = createRouter({
-  history: createWebHistory('/'),
+  history: createWebHashHistory(),
   routes: routes,
   scrollBehavior(to, from, savedPosition) {
     // 路由切换时的滚动行为
