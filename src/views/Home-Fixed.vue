@@ -1,0 +1,370 @@
+<!-- 修复后的首页 - 石河子大学迎新主题网页 -->
+
+<template>
+  <div class="home-page">
+    <!-- Banner轮播 -->
+    <BannerCarousel />
+
+    <!-- 主要内容区域 -->
+    <div class="container">
+      <!-- 欢迎标语 -->
+      <section class="welcome-section text-center py-5">
+        <h1 class="welcome-title fade-in">
+          <span class="text-gradient">2026级新生</span>
+          <br>
+          欢迎来到石河子大学
+        </h1>
+        <p class="welcome-subtitle fade-in">
+          在这里开启你的大学之旅，探索无限可能
+        </p>
+        <div class="welcome-stats fade-in">
+          <div class="stat-item">
+            <div class="stat-number">70+</div>
+            <div class="stat-label">本科专业</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">3万+</div>
+            <div class="stat-label">在校学生</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">2000+</div>
+            <div class="stat-label">教职工</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 快速导航 -->
+      <section class="quick-nav py-5">
+        <h2 class="section-title text-center mb-5">
+          <i class="fas fa-compass me-3"></i>
+          快速导航
+        </h2>
+        <div class="row g-4">
+          <div class="col-md-3">
+            <router-link to="/campus" class="nav-card card-hover">
+              <div class="nav-icon">
+                <i class="fas fa-university"></i>
+              </div>
+              <h5>校园风光</h5>
+              <p>探索美丽校园</p>
+            </router-link>
+          </div>
+          <div class="col-md-3">
+            <router-link to="/guide" class="nav-card card-hover">
+              <div class="nav-icon">
+                <i class="fas fa-book-open"></i>
+              </div>
+              <h5>迎新指南</h5>
+              <p>新生报到指引</p>
+            </router-link>
+          </div>
+          <div class="col-md-3">
+            <router-link to="/interaction" class="nav-card card-hover">
+              <div class="nav-icon">
+                <i class="fas fa-comments"></i>
+              </div>
+              <h5>新生互动</h5>
+              <p>留言交流答疑</p>
+            </router-link>
+          </div>
+          <div class="col-md-3">
+            <a href="#contact" class="nav-card card-hover">
+              <div class="nav-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <h5>联系我们</h5>
+              <p>咨询答疑通道</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 校园亮点 -->
+      <section class="campus-highlights py-5">
+        <h2 class="section-title text-center mb-5">
+          <i class="fas fa-star me-3"></i>
+          校园亮点
+        </h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="highlight-card card-hover">
+              <div class="highlight-image">
+                <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="学术氛围">
+              </div>
+              <div class="highlight-content">
+                <h5>浓厚学术氛围</h5>
+                <p>国家级重点学科，雄厚的师资力量，为你提供优质教育资源</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="highlight-card card-hover">
+              <div class="highlight-image">
+                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="校园生活">
+              </div>
+              <div class="highlight-content">
+                <h5>多彩校园生活</h5>
+                <p>丰富的社团活动，完善的生活设施，让大学生活更加精彩</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="highlight-card card-hover">
+              <div class="highlight-image">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="未来发展">
+              </div>
+              <div class="highlight-content">
+                <h5>广阔发展前景</h5>
+                <p>优质就业平台，创新创业支持，助力你的职业发展</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 新生留言板预览 -->
+      <section class="message-preview py-5">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="message-card">
+              <h3 class="card-title">
+                <i class="fas fa-comments me-2"></i>
+                新生留言板
+              </h3>
+              <p class="card-text">
+                查看其他新生的留言，分享你的期待和想法
+              </p>
+              <router-link to="/interaction" class="btn btn-primary">
+                查看更多留言
+                <i class="fas fa-arrow-right ms-2"></i>
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import BannerCarousel from '@/components/BannerCarousel.vue'
+</script>
+
+<style scoped>
+.home-page {
+  padding-top: 60px; /* 为固定导航栏留出空间 */
+}
+
+/* 欢迎区域 */
+.welcome-section {
+  background: linear-gradient(135deg, rgba(193, 39, 45, 0.05), rgba(24, 144, 255, 0.05));
+  border-radius: 16px;
+  margin: 48px 0;
+}
+
+.welcome-title {
+  font-size: 64px;
+  font-weight: 700;
+  color: #262626;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.welcome-subtitle {
+  font-size: 28px;
+  color: #595959;
+  margin-bottom: 48px;
+}
+
+.welcome-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 48px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 24px;
+}
+
+.stat-number {
+  font-size: 36px;
+  font-weight: 700;
+  color: #C1272D;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 18px;
+  color: #595959;
+  font-weight: 500;
+}
+
+/* 快速导航 */
+.section-title {
+  color: #C1272D;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 48px;
+}
+
+.nav-card {
+  display: block;
+  text-align: center;
+  padding: 48px 24px;
+  background: #FFFFFF;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #262626;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.nav-card:hover {
+  color: #262626;
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.nav-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #C1272D, #D94045);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 32px;
+}
+
+.nav-card h5 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.nav-card p {
+  color: #595959;
+  margin: 0;
+  font-size: 14px;
+}
+
+/* 校园亮点 */
+.highlight-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.highlight-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.highlight-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.highlight-card:hover .highlight-image img {
+  transform: scale(1.1);
+}
+
+.highlight-content {
+  padding: 24px;
+}
+
+.highlight-content h5 {
+  color: #262626;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.highlight-content p {
+  color: #595959;
+  margin: 0;
+  line-height: 1.8;
+}
+
+/* 留言板预览 */
+.message-preview {
+  margin: 48px 0;
+}
+
+.message-card {
+  background: linear-gradient(135deg, #C1272D, #D94045);
+  color: white;
+  padding: 48px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.message-card .card-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.message-card .card-text {
+  font-size: 18px;
+  margin-bottom: 24px;
+  opacity: 0.95;
+}
+
+.message-card .btn {
+  background: white;
+  color: #C1272D;
+  border: none;
+  padding: 8px 32px;
+  font-weight: 600;
+}
+
+.message-card .btn:hover {
+  background: #FAFAFA;
+  transform: translateY(-2px);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .welcome-title {
+    font-size: 36px;
+  }
+
+  .welcome-subtitle {
+    font-size: 18px;
+  }
+
+  .welcome-stats {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .nav-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .message-card {
+    padding: 24px;
+  }
+
+  .message-card .card-title {
+    font-size: 24px;
+  }
+}
+</style>
